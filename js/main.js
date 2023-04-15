@@ -253,7 +253,6 @@ function setPageLang() {
 
 // main script
 function main() {
-  setRandImg();
   toggleNavbar();
   createScrollToTopBtn();
   handleSettingsTab();
