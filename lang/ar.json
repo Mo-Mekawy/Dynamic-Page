@@ -1,0 +1,18 @@
+{
+  "logo": "مكاوى",
+  "about-link": "عنا",
+  "services-link": "الخدمات",
+  "products-link": "المنتجات",
+  "contact-link": "تواصل معنا",
+  "settings-h3": "الاعدادات",
+  "color-setting-h4": "الالوان:",
+  "randbg-setting-h4": "خلفية عشوائية:",
+  "darkmode-setting-h4": "الوضع الداكن:",
+  "lang-setting-h4": "اللغة:",
+  "checkbox-setting-span-off": "مغلق",
+  "checkbox-setting-span-on": "مفعل",
+  "lang-en": "الانجليزية",
+  "lang-ar": "العربية",
+  "landing-h1": "أهلا بك! نحن وكالة <span class='highlight'>مبدعة</span>",
+  "landing-p": "شكراً جزيلاً. أي شخص لديه وقت جيد لنا؟ أقل ، حقًا ، أو أن تنفر من واجبات الملذات واللذات المماثلة."
+}

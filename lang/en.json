@@ -1,0 +1,18 @@
+{
+  "logo": "Mekawy",
+  "about-link": "About",
+  "services-link": "Services",
+  "products-link": "Products",
+  "contact-link": "Contact",
+  "settings-h3": "Settings",
+  "color-setting-h4": "Colors:",
+  "randbg-setting-h4": "Random Backgrounds:",
+  "darkmode-setting-h4": "Dark Mode:",
+  "lang-setting-h4": "Language:",
+  "checkbox-setting-span-off": "Off",
+  "checkbox-setting-span-on": "On",
+  "lang-en": "English",
+  "lang-ar": "Arabic",
+  "landing-h1": "Hello there! we are <span class='highlight'>creative</span> agency",
+  "landing-p": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam nobis commodi tempore? Minus vero, aut repellendus officia voluptatum similique voluptate."
+}

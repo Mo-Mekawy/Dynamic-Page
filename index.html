@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="responsive design with no framworks" />
+    <meta name="keywords" content="html,css,js,responsive-design,template" />
+    <meta name="author" content="Mohamed Mekawy" />
+    <title>Special Design</title>
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- font awesome icons -->
+    <link rel="stylesheet" href="css/all.min.css" />
+    <!-- normalize css file -->
+    <link rel="stylesheet" href="css/normalize.css" />
+    <!-- main files -->
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/main.js" defer></script>
+  </head>
+  <body>
+    <button
+      title="scroll to the top"
+      id="scroll-to-top"
+      data-button="scrollToTop"
+    >
+      <span class="arrow-up"></span>
+    </button>
+
+    <header>
+      <nav id="nav" aria-label="main navigation">
+        <div class="logo" data-text="logo" aria-label="brand name"></div>
+        <button
+          data-burger-icon
+          id="toggle-nav"
+          aria-controls="nav-links"
+          type="button"
+          aria-label="toggle navigation menu"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul id="nav-links" data-nav-links>
+          <li>
+            <a class="nav-link" data-text="about-link" href="#about"></a>
+          </li>
+          <li>
+            <a class="nav-link" data-text="services-link" href="#services"></a>
+          </li>
+          <li>
+            <a class="nav-link" data-text="products-link" href="#products"></a>
+          </li>
+          <li>
+            <a class="nav-link" data-text="contact-link" href="#contact"></a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <aside id="settings" data-settings>
+      <button
+        title="open settings tab"
+        aria-controls="settings"
+        data-settings-toggle
+        class="settings__toggle"
+      >
+        <i class="fa-solid fa-gear settings__icon"></i>
+      </button>
+      <h3 data-text="settings-h3"></h3>
+      <div class="settings-box">
+        <h4 data-text="color-setting-h4"></h4>
+        <ul class="colors-settings">
+          <li>
+            <button class="color-setting" data-color="#03a9f4"></button>
+          </li>
+          <li>
+            <button class="color-setting" data-color="#607d8b"></button>
+          </li>
+          <li>
+            <button class="color-setting" data-color="#8bc34a"></button>
+          </li>
+          <li>
+            <button class="color-setting" data-color="#ff9800"></button>
+          </li>
+          <li>
+            <button class="color-setting" data-color="#e91e63"></button>
+          </li>
+        </ul>
+      </div>
+      <div class="settings-box">
+        <h4 data-text="randbg-setting-h4"></h4>
+        <div class="checkbox-setting">
+          <span data-text="checkbox-setting-span-off"></span>
+          <input
+            type="checkbox"
+            name="allow-rand-bg"
+            id="rand-bg-checkbox"
+            data-rand-bg-checkbox
+            checked
+          />
+          <label for="rand-bg-checkbox"></label>
+          <span data-text="checkbox-setting-span-on"></span>
+        </div>
+      </div>
+      <div class="settings-box">
+        <h4 data-text="darkmode-setting-h4"></h4>
+        <div class="checkbox-setting">
+          <span data-text="checkbox-setting-span-off"></span>
+          <input
+            type="checkbox"
+            name="dark-mode"
+            id="dark-mode"
+            data-darkmode-checkbox
+          />
+          <label for="dark-mode"></label>
+          <span data-text="checkbox-setting-span-on"></span>
+        </div>
+      </div>
+      <div class="settings-box">
+        <h4 data-text="lang-setting-h4"></h4>
+        <div class="radio-setting">
+          <div class="option">
+            <input
+              data-lang="en"
+              type="radio"
+              name="lang"
+              value="english"
+              id="english"
+            />
+            <label for="english" data-text="lang-en"></label>
+          </div>
+          <div class="option">
+            <input
+              data-lang="ar"
+              type="radio"
+              name="lang"
+              value="arabic"
+              id="arabic"
+            />
+            <label for="arabic" data-text="lang-ar"></label>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <main>
+      <section id="landing">
+        <div class="landing__overlay"></div>
+        <!-- random img is selected with js -->
+        <img src="" data-landing-img alt="nature scene" id="landing__img" />
+        <div class="landing__txt">
+          <h1 data-text="landing-h1" id="landing__title"></h1>
+          <p data-text="landing-p" class="landing_desc"></p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

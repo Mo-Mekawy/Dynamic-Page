@@ -1,0 +1,545 @@
+/* variables */
+:root {
+  --landing-overlay: rgba(0, 0, 0, 0.35);
+  /* 
+    color mode dependant variables are declared with js
+    its put here to help with developement (auto Complete)
+  */
+  --main-bg: #333;
+  --alt-bg: #1a1a1a;
+  --main-txt-clr: #f5f5f5;
+  --alt-txt-clr: #222;
+  /* ============================= */
+  --main-clr: #03a9f4;
+  --main-dur: 200ms;
+}
+
+/* 
+light mode handled with javaScript
+@media (prefers-color-scheme: light) {
+  html {
+    --main-bg: #f5f5f5;
+    --alt-bg: #c7eee8;
+    --main-txt-clr: #222;
+    --alt-txt-clr: #f5f5f5;
+  }
+} 
+*/
+
+/* global declarations */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Cairo", sans-serif;
+}
+
+p {
+  line-height: 1.6;
+  max-width: 70ch;
+}
+
+.highlight {
+  font-weight: 700;
+  color: var(--main-clr);
+  text-shadow: 0 0 5px #000;
+}
+
+/* main container */
+
+/* extra small screens (mobiles) */
+.container {
+  margin-inline: auto;
+  padding-inline: 15px;
+}
+
+/* small screens (tablets) */
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+
+/* medium screens (laptops) */
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+
+/* large screens (desktops) */
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+/* reusable components */
+#scroll-to-top {
+  border: none;
+  border-radius: 3px;
+  outline-color: transparent;
+  background-color: var(--main-clr);
+  color: var(--main-txt-clr);
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 1em;
+  display: block;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  transform: translateX(100px);
+  transition: transform 300ms ease-in-out;
+}
+
+#scroll-to-top:hover {
+  opacity: 0.85;
+}
+
+.arrow-up {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -25%) rotate(45deg);
+  width: 50%;
+  aspect-ratio: 1;
+  border: 4px solid currentColor;
+  border-bottom: none;
+  border-right: none;
+}
+
+#scroll-to-top:hover > .arrow-up {
+  animation: go-up 300ms ease-in-out infinite alternate;
+}
+
+#scroll-to-top.visible {
+  transform: translateX(0);
+}
+
+@keyframes go-up {
+  from {
+    transform: translate(-50%, -25%) rotate(45deg);
+  }
+  to {
+    transform: translate(-50%, -70%) rotate(45deg);
+  }
+}
+
+/* some resets */
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ================ main design styles ================ */
+
+/* ===== header and nav bar styles ===== */
+#nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  background-color: var(--alt-bg);
+  color: var(--main-txt-clr);
+  width: 100%;
+  min-height: 50px;
+  padding-inline: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+.logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--main-clr);
+}
+
+#nav-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.nav-link {
+  position: relative;
+  color: inherit;
+}
+
+.nav-link.active {
+  transition: color var(--main-dur) linear;
+  color: var(--main-clr);
+}
+
+.nav-link::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: translateY(100%) scaleX(0);
+  width: 100%;
+  height: 2px;
+  background-color: currentColor;
+  transform-origin: left;
+  transition: transform var(--main-dur) ease-in-out;
+}
+
+.nav-link:hover::before {
+  transform: translateY(100%) scaleX(1);
+}
+
+/* burger icon animation */
+#toggle-nav {
+  display: none;
+  width: 30px;
+  aspect-ratio: 1;
+  border-radius: 3px;
+  border: none;
+  padding: 0 5px;
+  color: var(--alt-bg);
+  background-color: var(--main-txt-clr);
+  cursor: pointer;
+  z-index: 2000;
+}
+
+#toggle-nav:hover {
+  opacity: 0.9;
+}
+
+#toggle-nav:focus-visible {
+  outline: 2px solid #ff9800;
+  outline-offset: 2px;
+}
+
+#toggle-nav > span {
+  --line-height: 3px;
+  display: block;
+  background-color: currentColor;
+  width: 100%;
+  height: var(--line-height);
+  margin: var(--line-height) auto;
+  border-radius: 2px;
+  transition: translate var(--main-dur) ease-in-out var(--main-dur),
+    rotate var(--main-dur) ease-in-out, scale var(--main-dur) ease-in-out;
+  transform-origin: center;
+}
+
+#toggle-nav[aria-expanded="true"] > span {
+  transition: translate var(--main-dur) ease-in-out,
+    rotate var(--main-dur) ease-in-out var(--main-dur),
+    scale var(--main-dur) ease-in-out;
+}
+
+#toggle-nav[aria-expanded="true"] > span:first-child {
+  translate: 0 calc(100% + var(--line-height));
+  rotate: 45deg;
+}
+
+#toggle-nav[aria-expanded="true"] > span:nth-child(2) {
+  scale: 0 1;
+}
+
+#toggle-nav[aria-expanded="true"] > span:last-child {
+  translate: 0 calc(-100% - var(--line-height));
+  rotate: -45deg;
+}
+
+#nav-links.visible {
+  transform: translateY(0);
+}
+
+/* burger icon display */
+@media (max-width: 650px) {
+  #nav::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-color: var(--alt-bg);
+  }
+
+  #nav-links {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    flex-direction: column;
+    padding-bottom: 0.5rem;
+    gap: 1rem;
+    background-color: var(--alt-bg);
+    z-index: -1000;
+    transform: translateY(-100%);
+    transition: transform var(--main-dur) ease-in-out;
+  }
+
+  #nav-links > li {
+    width: 100%;
+    padding-block: 0.75em;
+    text-align: center;
+    background-color: var(--main-bg);
+  }
+
+  #toggle-nav {
+    display: block;
+  }
+}
+
+/* ===== landing styles ===== */
+#landing {
+  --txt-clr: #f5f5f5;
+  padding-right: var(--aside-width);
+  display: grid;
+  place-items: center;
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  color: var(--main-txt-clr);
+  text-align: center;
+}
+
+.landing__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--landing-overlay);
+  z-index: -1;
+}
+
+#landing__img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+.landing__txt {
+  color: var(--txt-clr);
+  padding-inline: 1rem;
+}
+
+#landing__title {
+  margin-block: 0.75em;
+  font-size: clamp(1.25rem, 2vw + 1rem, 2.5rem);
+  text-transform: capitalize;
+}
+
+.landing_desc {
+  opacity: 0.95;
+  margin-inline: auto;
+}
+
+/* settings box styles */
+#settings {
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  width: 250px;
+  min-height: 100vh;
+  background-color: var(--alt-bg);
+  color: var(--main-txt-clr);
+  transition: transform var(--main-dur) ease-in-out;
+}
+
+#settings.ltr {
+  left: 0;
+  transform: translateX(-100%);
+}
+
+#settings.rtl {
+  right: 0;
+  transform: translateX(100%);
+}
+
+#settings.visible {
+  transform: translateX(0);
+}
+
+.settings__toggle {
+  position: absolute;
+  top: 30%;
+  width: 30px;
+  aspect-ratio: 1;
+  background-color: var(--main-clr);
+  color: currentColor;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.settings__toggle.ltr {
+  left: 100%;
+}
+
+.settings__toggle.rtl {
+  right: 100%;
+}
+
+.settings__toggle:focus-visible {
+  outline: 2px solid var(--main-txt-clr);
+}
+
+.settings__toggle:hover > .settings__icon,
+.settings__toggle:focus-visible > .settings__icon,
+.settings__toggle.active > .settings__icon {
+  animation: rotate-360 1s linear infinite;
+}
+
+@keyframes rotate-360 {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#settings > h3 {
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 0.5em;
+}
+
+.settings-box {
+  padding: 1rem 0.25rem;
+  margin: 2rem 0.5rem;
+  background-color: var(--main-bg);
+  border-radius: 4px;
+}
+
+.settings-box > h4 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-block-end: 0.75em;
+}
+
+/* color settings styles */
+.colors-settings {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.color-setting {
+  width: 30px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  opacity: 0.5;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.color-setting:focus-visible {
+  outline: 2px solid var(--alt-bg);
+  outline-offset: 2px;
+}
+
+.color-setting:hover,
+.color-setting:focus-visible,
+.color-setting.active {
+  opacity: 1;
+}
+
+.color-setting.active {
+  outline: 2px solid var(--main-txt-clr);
+}
+
+/* random bg checkbox styles */
+.checkbox-setting {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.checkbox-setting > span {
+  text-transform: uppercase;
+}
+
+.settings-box input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.settings-box input[type="checkbox"] + label {
+  --label-width: 6rem;
+  width: var(--label-width);
+  height: calc(var(--label-width) / 3);
+  border-radius: calc(var(--label-width) / 6);
+
+  background-color: var(--main-txt-clr);
+  color: var(--main-txt-clr);
+  cursor: pointer;
+}
+
+.settings-box input[type="checkbox"] + label:hover {
+  opacity: 0.9;
+}
+
+.settings-box input[type="checkbox"]:focus-visible + label {
+  outline: 2px solid var(--main-clr);
+  outline-offset: 2px;
+}
+
+.settings-box input[type="checkbox"] + label::before {
+  content: "\f00c";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  height: 100%;
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--main-clr);
+  border-radius: 50%;
+  transition: transform var(--main-dur) ease-out;
+}
+
+.settings-box input[type="checkbox"]:checked + label.ltr::before {
+  transform: translateX(calc(var(--label-width) - 100%));
+}
+
+.settings-box input[type="checkbox"]:checked + label.rtl::before {
+  transform: translateX(calc(100% - var(--label-width)));
+}
+
+/* language setting styles */
+.radio-setting > .option {
+  padding: 0.5rem;
+}
+
+.radio-setting > .option > :is(input, label) {
+  cursor: pointer;
+}
+
+.radio-setting > .option > label {
+  font-weight: 500;
+  margin-inline-start: 0.5em;
+}
+
+.radio-setting > .option > input:checked + label {
+  color: var(--main-clr);
+}
+
+/* ===== about section styles ===== */
