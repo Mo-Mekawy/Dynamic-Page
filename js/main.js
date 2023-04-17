@@ -251,6 +251,44 @@ function setPageLang() {
   }
 }
 
+function AddFadeInAnimations() {
+  // elements to observe (if visible do some animations)
+  const aboutImg = document.querySelector(".about__img");
+  const sectionHeaders = Array.from(
+    document.getElementsByClassName("section-title")
+  );
+
+  const IntersectionOptions = {
+    root: null,
+    rootMargin: "0px 5000px 0px 5000px",
+    threshold: 0.25,
+  };
+
+  const applyAnimation = (entries, observer) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+
+      const el = entry.target;
+
+      if (el.classList.contains("about__img")) el.classList.add("fade-in");
+      else if (el.classList.contains("section-title"))
+        el.classList.add("border-animation");
+
+      observer.unobserve(el);
+    });
+  };
+
+  const observer = new IntersectionObserver(
+    applyAnimation,
+    IntersectionOptions
+  );
+
+  observer.observe(aboutImg);
+  sectionHeaders.forEach((el) => {
+    observer.observe(el);
+  });
+}
+
 // main script
 function main() {
   toggleNavbar();
@@ -259,6 +297,7 @@ function main() {
   checkRandBgRepeat();
   checkDarkMode();
   setPageLang();
+  AddFadeInAnimations();
 }
 
 document.addEventListener("DOMContentLoaded", main);
