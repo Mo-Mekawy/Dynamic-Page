@@ -1,7 +1,7 @@
-// get a random integer between 1-6 and show the img with that id
+// get a random integer between 1-9 and show the img with that id
 function setRandImg() {
-  document.querySelector("[data-landing-img]").src = `images/landing-${
-    Math.floor(Math.random() * 6) + 1
+  document.querySelector("[data-landing-img]").src = `images/landing-0${
+    Math.floor(Math.random() * 8) + 1
   }.webp`;
 }
 
@@ -140,6 +140,7 @@ const checkRandBgRepeat = (() => {
   };
 })();
 
+// changes the color varaibles so the theme changes to dark
 function setColorMode(isDarkMode) {
   if (isDarkMode) {
     document.documentElement.style.setProperty("--main-bg", "#333");
@@ -148,12 +149,13 @@ function setColorMode(isDarkMode) {
     document.documentElement.style.setProperty("--alt-txt-clr", "#222");
   } else {
     document.documentElement.style.setProperty("--main-bg", "#f5f5f5");
-    document.documentElement.style.setProperty("--alt-bg", "#c7eee8");
+    document.documentElement.style.setProperty("--alt-bg", "#bbe2dc");
     document.documentElement.style.setProperty("--main-txt-clr", "#222");
     document.documentElement.style.setProperty("--alt-txt-clr", "#f5f5f5");
   }
 }
 
+// updates the dark mode based on local storage or preference and on click
 function checkDarkMode() {
   const darkmodeCheckbox = document.querySelector("[data-darkmode-checkbox]");
   const darkModeAllowed = localStorage.getItem("dark-mode");
@@ -188,6 +190,7 @@ function checkDarkMode() {
   setColorMode(false);
 }
 
+// get text from a json file and update the text and direction to that lang
 async function changeLangTo(lang, direction) {
   const allElementsWithText = document.querySelectorAll("[data-text]");
   const otherDirection = direction === "rtl" ? "ltr" : "rtl";
@@ -207,6 +210,7 @@ async function changeLangTo(lang, direction) {
   const aside = document.querySelector("[data-settings]");
   const toggler = aside.querySelector("[data-settings-toggle]");
   const checkMarkLabels = aside.querySelectorAll(".checkbox-setting > label");
+  const aboutImg = document.querySelector("[data-about-img]");
 
   aside.classList.add(direction);
   aside.classList.remove(otherDirection);
@@ -218,8 +222,19 @@ async function changeLangTo(lang, direction) {
     label.classList.add(direction);
     label.classList.remove(otherDirection);
   });
+
+  aboutImg.classList.add(direction);
+  aboutImg.classList.remove(otherDirection);
+
+  // change alt attr of gallery images
+  const imgDivs = document.querySelectorAll("[data-image-type]");
+  imgDivs.forEach((div) => {
+    const img = div.querySelector("img");
+    img.alt = div.querySelector("p[data-text]").textContent;
+  });
 }
 
+// changes the page language based on preference or local storage and on click
 function setPageLang() {
   let lang = localStorage.getItem("lang");
   const enRadioBtn = document.querySelector("[data-lang=en]");
@@ -251,17 +266,39 @@ function setPageLang() {
   }
 }
 
-function AddFadeInAnimations() {
+// add the skills prog to each skill element
+function addSkillsProg() {
+  const progObj = {
+    html: "90",
+    css: "80",
+    js: "65",
+    git: "70",
+    mysql: "20",
+    python: "80",
+  };
+
+  const skillSpans = document.querySelectorAll("[data-skill]");
+
+  skillSpans.forEach((span) => {
+    const prog = progObj[span.dataset.skill];
+
+    span.style.setProperty("--prog", `${prog}%`);
+  });
+}
+
+// add animations on scroll with the intersection observer
+function addAnimations() {
   // elements to observe (if visible do some animations)
   const aboutImg = document.querySelector(".about__img");
   const sectionHeaders = Array.from(
     document.getElementsByClassName("section-title")
   );
+  const skills = document.querySelectorAll(".skill");
 
   const IntersectionOptions = {
     root: null,
     rootMargin: "0px 5000px 0px 5000px",
-    threshold: 0.25,
+    threshold: 1,
   };
 
   const applyAnimation = (entries, observer) => {
@@ -273,6 +310,7 @@ function AddFadeInAnimations() {
       if (el.classList.contains("about__img")) el.classList.add("fade-in");
       else if (el.classList.contains("section-title"))
         el.classList.add("border-animation");
+      else if (el.classList.contains("skill")) el.classList.add("scale-up");
 
       observer.unobserve(el);
     });
@@ -284,8 +322,36 @@ function AddFadeInAnimations() {
   );
 
   observer.observe(aboutImg);
-  sectionHeaders.forEach((el) => {
-    observer.observe(el);
+  sectionHeaders.forEach((el) => observer.observe(el));
+  skills.forEach((skill) => observer.observe(skill));
+}
+
+// filter gallery imgs when clicked on its corresponding btn
+function handleGalleryFilter() {
+  const filterBtns = document.querySelectorAll("[data-filter-btn]");
+  const allImages = document.querySelectorAll("[data-image-type]");
+
+  const filterImg = (imgType) => {
+    allImages.forEach((img) => {
+      if (img.dataset.imageType === imgType || imgType === "all") {
+        img.classList.add("img-fade-in");
+        img.classList.remove("img-fade-out");
+        return;
+      }
+
+      img.classList.remove("img-fade-in");
+      img.classList.add("img-fade-out");
+    });
+  };
+
+  filterBtns.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      document
+        .querySelector("[data-filter-btn].active")
+        .classList.remove("active");
+      e.target.classList.add("active");
+      filterImg(e.target.dataset["filterBtn"]);
+    });
   });
 }
 
@@ -297,7 +363,9 @@ function main() {
   checkRandBgRepeat();
   checkDarkMode();
   setPageLang();
-  AddFadeInAnimations();
+  addSkillsProg();
+  addAnimations();
+  handleGalleryFilter();
 }
 
 document.addEventListener("DOMContentLoaded", main);

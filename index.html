@@ -155,7 +155,7 @@
         <div class="landing__overlay"></div>
         <!-- random img is selected with js -->
         <img
-          src="images/landing-1.webp"
+          src="images/landing-01.webp"
           data-landing-img
           alt="nature scene"
           id="landing__img"
@@ -167,24 +167,142 @@
       </section>
       <section id="about">
         <h2 class="section-title">
-          About Us
+          <span data-text="about-title"></span>
           <svg class="border-svg" xmlns="http://www.w3.org/2000/svg">
             <rect class="border" />
           </svg>
         </h2>
         <div class="container about__content">
           <div class="about__text">
-            <h3>Who Are We?</h3>
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam
-              nemo doloremque et, quas doloribus voluptates quo reprehenderit
-              cumque quae obcaecati rem consequatur nobis recusandae eaque
-              aspernatur totam eum earum? Placeat.
-            </p>
+            <h3 data-text="about-header-text"></h3>
+            <p data-text="about-desc-text"></p>
           </div>
-          <div class="about__img" title="question mark illustration image">
+          <div
+            data-about-img
+            class="about__img"
+            title="question mark illustration image"
+          >
             &lt; / &gt;
           </div>
+        </div>
+        <div class="skills-container container">
+          <h3 class="sub-section-title" data-text="skills-title">Skills</h3>
+          <ul class="skills-list">
+            <li class="skill" data-skill="html">
+              <span class="skill__name">HTML</span>
+              <span class="skill__prog"></span>
+            </li>
+            <li class="skill" data-skill="css">
+              <span class="skill__name">CSS</span>
+              <span class="skill__prog"></span>
+            </li>
+            <li class="skill" data-skill="js">
+              <span class="skill__name">JavaScript</span>
+              <span class="skill__prog"></span>
+            </li>
+            <li class="skill" data-skill="git">
+              <span class="skill__name">GIT</span>
+              <span class="skill__prog"></span>
+            </li>
+            <li class="skill" data-skill="mysql">
+              <span class="skill__name">MySQL</span>
+              <span class="skill__prog"></span>
+            </li>
+            <li class="skill" data-skill="python">
+              <span class="skill__name">Python</span>
+              <span class="skill__prog"></span>
+            </li>
+          </ul>
+        </div>
+        <div class="gallery container">
+          <h3 class="sub-section-title" data-text="gallery-title"></h3>
+          <p class="gallery-desc" data-text="gallery-desc"></p>
+          <div class="gallery__filter-btns">
+            <button
+              data-text="filter-btn-1"
+              data-filter-btn="all"
+              class="gallery__filter-btn active"
+            ></button>
+            <button
+              data-text="filter-btn-2"
+              data-filter-btn="imaginative"
+              class="gallery__filter-btn"
+            ></button>
+            <button
+              data-text="filter-btn-3"
+              data-filter-btn="nature"
+              class="gallery__filter-btn"
+            ></button>
+            <button
+              data-text="filter-btn-4"
+              data-filter-btn="snow"
+              class="gallery__filter-btn"
+            ></button>
+            <button
+              data-text="filter-btn-5"
+              data-filter-btn="forest"
+              class="gallery__filter-btn"
+            ></button>
+          </div>
+          <div class="gallery__images">
+            <div data-image-type="snow" class="gallery__card">
+              <img loading="lazy" src="images/landing-03.webp" />
+              <div class="card__content">
+                <h3 data-text="gallery-img-1-title"></h3>
+                <p data-text="gallery-img-1-desc"></p>
+              </div>
+            </div>
+            <div data-image-type="imaginative" class="gallery__card">
+              <img loading="lazy" src="images/landing-06.webp" />
+              <div class="card__content">
+                <h3 data-text="gallery-img-2-title"></h3>
+                <p data-text="gallery-img-2-desc"></p>
+              </div>
+            </div>
+            <div data-image-type="nature" class="gallery__card">
+              <img loading="lazy" src="images/landing-04.webp" />
+              <div class="card__content">
+                <h3 data-text="gallery-img-3-title"></h3>
+                <p data-text="gallery-img-3-desc"></p>
+              </div>
+            </div>
+            <div data-image-type="snow" class="gallery__card">
+              <img loading="lazy" src="images/landing-02.webp" />
+              <div class="card__content">
+                <h3 data-text="gallery-img-4-title"></h3>
+                <p data-text="gallery-img-4-desc"></p>
+              </div>
+            </div>
+            <div data-image-type="nature" class="gallery__card">
+              <img loading="lazy" src="images/landing-08.webp" />
+              <div class="card__content">
+                <h3 data-text="gallery-img-5-title"></h3>
+                <p data-text="gallery-img-5-desc"></p>
+              </div>
+            </div>
+            <div data-image-type="forest" class="gallery__card">
+              <img loading="lazy" src="images/landing-01.webp" />
+              <div class="card__content">
+                <h3 data-text="gallery-img-6-title"></h3>
+                <p data-text="gallery-img-6-desc"></p>
+              </div>
+            </div>
+            <div data-image-type="imaginative" class="gallery__card">
+              <img loading="lazy" src="images/landing-07.webp" />
+              <div class="card__content">
+                <h3 data-text="gallery-img-7-title"></h3>
+                <p data-text="gallery-img-7-desc"></p>
+              </div>
+            </div>
+            <div data-image-type="forest" class="gallery__card">
+              <img loading="lazy" src="images/landing-05.webp" />
+              <div class="card__content">
+                <h3 data-text="gallery-img-8-title"></h3>
+                <p data-text="gallery-img-8-desc"></p>
+              </div>
+            </div>
+          </div>
+          <a data-text="gallery-more-btn" href="#!" class="gallery__btn"></a>
         </div>
       </section>
     </main>

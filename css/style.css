@@ -116,6 +116,12 @@ p {
   transition: transform var(--main-dur) ease-in-out;
 }
 
+@media (prefers-reduced-motion) {
+  #scroll-to-top {
+    transition: none;
+  }
+}
+
 #scroll-to-top:hover {
   opacity: 0.85;
 }
@@ -631,7 +637,14 @@ ul {
   color: var(--main-clr);
   flex-shrink: 0;
   font-size: clamp(4rem, 3.5vw + 3rem, 8rem);
+}
+
+.about__img.ltr {
   transform: translateX(100%);
+}
+
+.about__img.rtl {
+  transform: translateX(-100%);
 }
 
 @media (prefers-reduced-motion) {
@@ -661,4 +674,211 @@ ul {
   .section-title {
     margin-bottom: 1.5em;
   }
+}
+
+/* skills styles */
+.skills-container {
+  margin-block: 3rem;
+}
+
+.sub-section-title {
+  text-align: center;
+  font-size: var(--title-size);
+  font-weight: 500;
+  margin-bottom: 1em;
+}
+
+.skill {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 0.75rem;
+  background-color: var(--alt-bg);
+  margin-block: 1rem;
+  /* to keep the skill direction event if lang is rtl */
+  direction: ltr;
+  text-align: start;
+}
+
+.skill__name {
+  font-weight: 500;
+  flex-grow: 1;
+}
+
+.skill__prog {
+  position: relative;
+  background-color: var(--main-bg);
+  height: 1.75rem;
+  width: 80%;
+}
+
+.skill__prog::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: var(--prog);
+  background-color: var(--main-clr);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform calc(2 * var(--main-dur)) ease-in-out;
+}
+
+.scale-up .skill__prog::before {
+  transform: scaleX(1);
+}
+
+@media (max-width: 547px) {
+  .skill {
+    flex-direction: column;
+    padding-block: 0.75rem;
+  }
+
+  .skill__name {
+    font-size: 1.125rem;
+  }
+
+  .skill__prog {
+    width: 100%;
+  }
+}
+
+/* Gallery styles */
+.gallery-desc {
+  margin: 1.5rem auto;
+  text-align: center;
+}
+
+.gallery__filter-btns {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.gallery__filter-btn {
+  border: none;
+  background-color: var(--alt-bg);
+  color: var(--main-txt-clr);
+  cursor: pointer;
+  padding: 0.75rem;
+  transition: background-color 200ms linear;
+}
+
+.gallery__filter-btn:not(.active):hover {
+  background-color: var(--main-clr);
+}
+
+.gallery__filter-btn.active {
+  background-color: var(--main-clr);
+  transition: opacity 200ms ease-out;
+}
+
+.gallery__filter-btn.active:hover {
+  opacity: 0.87;
+}
+
+.gallery__btn {
+  display: block;
+  width: fit-content;
+  padding: 0.75rem 1.25rem;
+  margin: 1.5em auto;
+  color: var(--main-txt-clr);
+  background-color: var(--main-clr);
+  text-transform: uppercase;
+  border-radius: 3px;
+  box-shadow: 0 0 5px var(--main-clr);
+  transition: opacity 200ms ease-out;
+}
+
+.gallery__images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.gallery__card {
+  flex-grow: 1;
+  width: min(100%, 350px);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--main-txt-clr);
+}
+
+.img-fade-in {
+  animation: img-fade-in 500ms ease-in-out forwards;
+}
+
+.img-fade-out {
+  animation: img-fade-out 300ms ease-in-out forwards;
+}
+
+@keyframes img-fade-in {
+  from {
+    transform: translate(-100px, -100px) scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: translate(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes img-fade-out {
+  from {
+    transform: translate(0) scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: translate(-100px, -100px) scale(0);
+    opacity: 0;
+    position: absolute;
+  }
+}
+
+.gallery__card > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 250ms ease-in-out;
+}
+
+.gallery__card > .card__content {
+  width: 100%;
+  padding: 1rem;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transform: translateY(100%);
+  background-color: var(--alt-bg);
+  color: var(--main-txt-clr);
+  transition: transform 250ms ease-in-out;
+}
+
+.gallery__card:hover > .card__content {
+  transform: translate(0);
+}
+
+.gallery__card > .card__content h3 {
+  font-weight: 500;
+  margin-bottom: 1em;
+}
+
+.gallery__card > .card__content p {
+  font-size: 0.925rem;
+}
+
+.gallery__card:hover > img {
+  transform: rotate(4deg) scale(1.13);
+}
+
+.gallery__card:nth-child(even):hover > img {
+  transform: rotate(-4deg) scale(1.13);
+}
+
+.gallery__btn:hover {
+  opacity: 0.85;
 }
