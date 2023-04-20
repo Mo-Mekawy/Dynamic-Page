@@ -110,6 +110,7 @@ p {
   padding: 1em;
   display: block;
   position: fixed;
+  z-index: 100;
   bottom: 1rem;
   right: 1rem;
   transform: translateX(100px);
