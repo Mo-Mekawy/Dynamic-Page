@@ -7,14 +7,23 @@ The HTML file named "index.html" contains the following elements:
 `header`
 contains the website's logo and navigation menu.
 
+`aside`
+contains the settings tab.
+
 `main`
 contains the landing section and the about section.
 
 `landing section`
 contains a background image, a paragraph and a heading.
 
-`aside`
-contains the settings tab.
+`about section`
+contains an introduction text and a code text image => </>
+
+`skills sub section`
+contains each skill and its progress bar
+
+`gallery sub section`
+contains images and filter buttons to these images
 
 ## CSS
 
@@ -29,6 +38,18 @@ The CSS file "style.css" contains styles for the header, main section, and aside
 `The aside` contains the settings tab and is hidden by default.
 
 `The checkbox styles` are used for the dark mode checkbox and the random background image checkbox. The checkboxes have a custom appearance using labels and a transition effect when clicked.
+
+`section title`
+contains a smooth border and bg animation
+
+`img-fade-in`
+applies a fade in animation from 0% size to 100%
+
+`img-fade-in`
+applies a fade out animation from 100% size to 0%
+
+`gallery styles`
+make a images grid with css flexbox
 
 ## JavaScript
 
@@ -46,7 +67,7 @@ This function checks if dark mode is allowed based on the user's preference or l
 This function checks if the random background image is allowed based on the user's preference or local storage. If there is no option value in local storage, it checks if in HTML (allow) is the default option. If the option is not set, it returns. If the option is set to false, it sets the checkbox to false. If the option is set to true, it sets the checkbox to true and gets a random image first then changes it every 10 seconds.
 
 `changeLangTo(lang, direction)`
-This function changes the language of the website and the direction of the text based on the user's preference or local storage. It fetches a JSON file containing translations for the website's text and updates the text on the website. It also updates the direction of the website and the style of the settings aside.
+This function changes the language of the website and the direction of the text based on the user's preference or local storage. It fetches a JSON file containing translations for the website's text and updates the text on the website. It also updates the direction of the website, the style of the settings aside and the alt tag of the gallery images.
 
 `createScrollToTopBtn()`
 This function creates a button to scroll to the top of the page and shows or hides the button based on the user's scroll position.
@@ -66,6 +87,15 @@ This function sets a random background image for the website.
 `toggleNavbar()`
 This function toggles the navigation menu and adds an active class to the clicked nav link.
 
+`addAnimations`
+This function adds fade-in animations to certain elements on the website. It uses the IntersectionObserver API to detect when the elements are in the viewport and apply the animations. The function does not take any parameters and does not return any value. It works by selecting certain elements on the page and adding a CSS class to them when they are in the viewport. The CSS class contains the animation properties that create the fade-in effect.
+
+`addSkillsProg`
+add the skill progress for each bar so it can be animated on scroll
+
+`handleGalleryFilter`
+add a click event listener for each filter btn that filter the images according to its type (forest, snow, nature, imaginative)
+
 ### **Event Listeners**
 
 - _click_
@@ -78,6 +108,9 @@ This function toggles the navigation menu and adds an active class to the clicke
 
   `toggleNavbar()`
   : When the user clicks on the burger icon, it toggles the navigation menu.
+
+  `handleGalleryFilter`
+  : when the user clicks on the filter btn, it filters the gallery images according to its type.
 
 - _change_
 
