@@ -52,10 +52,10 @@
             <a class="nav-link" data-text="about-link" href="#about"></a>
           </li>
           <li>
-            <a class="nav-link" data-text="services-link" href="#services"></a>
+            <a class="nav-link" data-text="features-link" href="#features"></a>
           </li>
           <li>
-            <a class="nav-link" data-text="products-link" href="#products"></a>
+            <a class="nav-link" data-text="gallery-link" href="#gallery"></a>
           </li>
           <li>
             <a class="nav-link" data-text="contact-link" href="#contact"></a>
@@ -64,15 +64,17 @@
       </nav>
     </header>
 
+    <button
+      title="open settings tab"
+      aria-controls="settings"
+      aria-expanded="false"
+      data-settings-toggle
+      class="settings__toggle"
+    >
+      <i class="fa-solid fa-gear settings__icon"></i>
+    </button>
+
     <aside id="settings" data-settings>
-      <button
-        title="open settings tab"
-        aria-controls="settings"
-        data-settings-toggle
-        class="settings__toggle"
-      >
-        <i class="fa-solid fa-gear settings__icon"></i>
-      </button>
       <h3 data-text="settings-h3"></h3>
       <div class="settings-box">
         <h4 data-text="color-setting-h4"></h4>
@@ -165,6 +167,7 @@
           <p data-text="landing-p" class="landing_desc"></p>
         </div>
       </section>
+
       <section id="about">
         <h2 class="section-title">
           <span data-text="about-title"></span>
@@ -186,7 +189,7 @@
           </div>
         </div>
         <div class="skills-container container">
-          <h3 class="sub-section-title" data-text="skills-title">Skills</h3>
+          <h3 class="sub-section-title" data-text="skills-title"></h3>
           <ul class="skills-list">
             <li class="skill" data-skill="html">
               <span class="skill__name">HTML</span>
@@ -214,8 +217,110 @@
             </li>
           </ul>
         </div>
-        <div class="gallery container">
-          <h3 class="sub-section-title" data-text="gallery-title"></h3>
+        <article class="time-line container">
+          <h3 class="sub-section-title" data-text="time-line-title"></h3>
+          <div class="time-line__event">
+            <span class="event__year" data-text="event-1-year"></span>
+            <div class="event__card card_left">
+              <h4 class="event__title" data-text="event-1-title-1"></h4>
+              <p class="event__desc" data-text="event-1-desc-1"></p>
+            </div>
+            <div class="line-break"></div>
+            <div class="event__card card_right">
+              <h4 class="event__title" data-text="event-1-title-1"></h4>
+              <p class="event__desc" data-text="event-1-desc-1"></p>
+            </div>
+            <div class="line-break"></div>
+            <div class="event__card card_right">
+              <h4 class="event__title" data-text="event-1-title-1"></h4>
+              <p class="event__desc" data-text="event-1-desc-1"></p>
+            </div>
+            <div class="line-break"></div>
+            <div class="event__card card_left">
+              <h4 class="event__title" data-text="event-1-title-1"></h4>
+              <p class="event__desc" data-text="event-1-desc-1"></p>
+            </div>
+          </div>
+          <div class="time-line__event">
+            <span class="event__year" data-text="event-2-year"></span>
+            <div class="event__card card_right">
+              <h4 class="event__title" data-text="event-1-title-1"></h4>
+              <p class="event__desc" data-text="event-1-desc-1"></p>
+            </div>
+            <div class="line-break"></div>
+            <div class="event__card card_right">
+              <h4 class="event__title" data-text="event-1-title-1"></h4>
+              <p class="event__desc" data-text="event-1-desc-1"></p>
+            </div>
+            <div class="line-break"></div>
+            <div class="event__card card_left">
+              <h4 class="event__title" data-text="event-1-title-1"></h4>
+              <p class="event__desc" data-text="event-1-desc-1"></p>
+            </div>
+            <div class="line-break"></div>
+            <div class="event__card card_left active">
+              <h4 class="event__title" data-text="event-1-title-1"></h4>
+              <p class="event__desc" data-text="event-1-desc-1"></p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section id="features">
+        <h2 class="section-title">
+          <span data-text="features-title"></span>
+          <svg class="border-svg" xmlns="http://www.w3.org/2000/svg">
+            <rect class="border" />
+          </svg>
+        </h2>
+        <div class="container features-wrapper">
+          <div class="feature">
+            <div class="image">
+              <img
+                loading="lazy"
+                src="images/feature-01.webp"
+                alt="labtop and coffee"
+              />
+            </div>
+            <h3 data-text="feature-1-title"></h3>
+            <p data-text="feature-1-desc"></p>
+            <a href="#!" data-text="feature-more-btn"></a>
+          </div>
+          <div class="feature">
+            <div class="image">
+              <img
+                loading="lazy"
+                src="images/feature-02.webp"
+                alt="labtops and mobiles on work desktop"
+              />
+            </div>
+            <h3 data-text="feature-2-title"></h3>
+            <p data-text="feature-2-desc"></p>
+            <a href="#!" data-text="feature-more-btn"></a>
+          </div>
+          <div class="feature">
+            <div class="image">
+              <img
+                loading="lazy"
+                src="images/feature-03.webp"
+                alt="labtop in front of a library full of books"
+              />
+            </div>
+            <h3 data-text="feature-3-title"></h3>
+            <p data-text="feature-3-desc"></p>
+            <a href="#!" data-text="feature-more-btn"></a>
+          </div>
+        </div>
+      </section>
+
+      <section id="gallery">
+        <h2 class="section-title">
+          <span data-text="gallery-title"></span>
+          <svg class="border-svg" xmlns="http://www.w3.org/2000/svg">
+            <rect class="border" />
+          </svg>
+        </h2>
+        <div class="container">
           <p class="gallery-desc" data-text="gallery-desc"></p>
           <div class="gallery__filter-btns">
             <button

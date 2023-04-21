@@ -1,8 +1,8 @@
 {
   "logo": "Mekawy",
   "about-link": "About",
-  "services-link": "Services",
-  "products-link": "Products",
+  "features-link": "Features",
+  "gallery-link": "Gallery",
   "contact-link": "Contact",
   "settings-h3": "Settings",
   "color-setting-h4": "Colors:",
@@ -42,5 +42,19 @@
   "gallery-img-7-desc": "imaginary img of the earth and the space",
   "gallery-img-8-title": "Forest Image",
   "gallery-img-8-desc": "trees in the forest",
-  "gallery-more-btn": "More"
+  "gallery-more-btn": "More",
+  "time-line-title": "Main events",
+  "event-1-year": "2022",
+  "event-1-title-1": "The Open Data Science Conference",
+  "event-1-desc-1": "Attendees come away with valuable data science and machine learning training from experienced mentors and engineers from some of the global AI ecosystem companies.",
+  "event-2-year": "2023",
+  "features-title": "Our Features",
+  "feature-1-title": "Quality",
+  "feature-1-desc": "We believe that quality is not just a goal, but a way of doing business, and we invite you to experience the difference for yourself.",
+  "feature-2-title": "Time",
+  "feature-2-desc": "We believe that time is a valuable commodity, and we strive to make the most of it by providing fast and reliable service.",
+  "feature-3-title": "Passion",
+  "feature-3-desc": "We believe that passion is the driving force behind our success, and we strive to infuse it into everything we do.",
+  "feature-more-btn": "More"
+
 }

@@ -66,6 +66,13 @@ function handleSettingsTab() {
   asideToggleBtn.addEventListener("click", (e) => {
     asideToggleBtn.classList.toggle("active");
     settingsAside.classList.toggle("visible");
+
+    // accessabilty attribute
+    if (asideToggleBtn.getAttribute("aria-expanded") === "false") {
+      asideToggleBtn.setAttribute("aria-expanded", "true");
+      return;
+    }
+    asideToggleBtn.setAttribute("aria-expanded", "false");
   });
 
   // add colors to btns and update the main color on click
@@ -208,9 +215,10 @@ async function changeLangTo(lang, direction) {
 
   // style changes
   const aside = document.querySelector("[data-settings]");
-  const toggler = aside.querySelector("[data-settings-toggle]");
+  const toggler = document.querySelector("[data-settings-toggle]");
   const checkMarkLabels = aside.querySelectorAll(".checkbox-setting > label");
   const aboutImg = document.querySelector("[data-about-img]");
+  const timeLineEvents = document.querySelectorAll(".event__card");
 
   aside.classList.add(direction);
   aside.classList.remove(otherDirection);
@@ -225,6 +233,11 @@ async function changeLangTo(lang, direction) {
 
   aboutImg.classList.add(direction);
   aboutImg.classList.remove(otherDirection);
+
+  timeLineEvents.forEach((event) => {
+    event.classList.add(direction);
+    event.classList.remove(otherDirection);
+  });
 
   // change alt attr of gallery images
   const imgDivs = document.querySelectorAll("[data-image-type]");
