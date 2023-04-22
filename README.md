@@ -22,6 +22,12 @@ contains an introduction text and a code text image => </>
 `skills sub section`
 contains each skill and its progress bar
 
+`features section`
+contains a title, three features Each feature includes an image, a title, a description, and a "more" button.
+
+`testimonials sub section`
+contains six testimonials. Each testimonial includes an image, a name, a title, and a text.
+
 `gallery sub section`
 contains images and filter buttons to these images
 
@@ -47,6 +53,14 @@ applies a fade in animation from 0% size to 100%
 
 `img-fade-in`
 applies a fade out animation from 100% size to 0%
+
+`features styles`
+all features are centered with flex box and if the have a minimam width if
+exceeded it will wrap to the next line.
+
+`testimonials styles`
+testimonials uses css grid to make as many columns as the the size of the screen can take with a minimam width of 300px per column.
+each testimonial is moved to the left or right and fade in on scroll.
 
 `gallery styles`
 make a images grid with css flexbox
