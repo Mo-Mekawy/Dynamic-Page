@@ -307,6 +307,7 @@ function addAnimations() {
     document.getElementsByClassName("section-title")
   );
   const skills = document.querySelectorAll(".skill");
+  const testimonials = document.querySelectorAll(".testimonial");
 
   const IntersectionOptions = {
     root: null,
@@ -324,6 +325,8 @@ function addAnimations() {
       else if (el.classList.contains("section-title"))
         el.classList.add("border-animation");
       else if (el.classList.contains("skill")) el.classList.add("scale-up");
+      else if (el.classList.contains("testimonial"))
+        el.classList.add("fade-in");
 
       observer.unobserve(el);
     });
@@ -337,6 +340,7 @@ function addAnimations() {
   observer.observe(aboutImg);
   sectionHeaders.forEach((el) => observer.observe(el));
   skills.forEach((skill) => observer.observe(skill));
+  testimonials.forEach((testimonial) => observer.observe(testimonial));
 }
 
 // filter gallery imgs when clicked on its corresponding btn
