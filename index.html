@@ -52,7 +52,24 @@
             <a class="nav-link" data-text="about-link" href="#about"></a>
           </li>
           <li>
+            <a class="nav-link" data-text="skills-link" href="#skills"></a>
+          </li>
+          <li>
+            <a
+              class="nav-link"
+              data-text="time-line-link"
+              href="#time-line"
+            ></a>
+          </li>
+          <li>
             <a class="nav-link" data-text="features-link" href="#features"></a>
+          </li>
+          <li>
+            <a
+              class="nav-link"
+              data-text="testimonials-link"
+              href="#testimonials"
+            ></a>
           </li>
           <li>
             <a class="nav-link" data-text="gallery-link" href="#gallery"></a>
@@ -188,37 +205,51 @@
             &lt; / &gt;
           </div>
         </div>
-        <article class="skills-container container">
-          <h3 class="sub-section-title" data-text="skills-title"></h3>
-          <ul class="skills-list">
-            <li class="skill" data-skill="html">
-              <span class="skill__name">HTML</span>
-              <span class="skill__prog"></span>
-            </li>
-            <li class="skill" data-skill="css">
-              <span class="skill__name">CSS</span>
-              <span class="skill__prog"></span>
-            </li>
-            <li class="skill" data-skill="js">
-              <span class="skill__name">JavaScript</span>
-              <span class="skill__prog"></span>
-            </li>
-            <li class="skill" data-skill="git">
-              <span class="skill__name">GIT</span>
-              <span class="skill__prog"></span>
-            </li>
-            <li class="skill" data-skill="mysql">
-              <span class="skill__name">MySQL</span>
-              <span class="skill__prog"></span>
-            </li>
-            <li class="skill" data-skill="python">
-              <span class="skill__name">Python</span>
-              <span class="skill__prog"></span>
-            </li>
-          </ul>
-        </article>
-        <article class="time-line container">
-          <h3 class="sub-section-title" data-text="time-line-title"></h3>
+      </section>
+
+      <section id="skills">
+        <h2 class="section-title">
+          <span data-text="skills-title"></span>
+          <svg class="border-svg" xmlns="http://www.w3.org/2000/svg">
+            <rect class="border" />
+          </svg>
+        </h2>
+        <ul class="container">
+          <li class="skill" data-skill="html">
+            <span class="skill__name">HTML</span>
+            <span class="skill__prog"></span>
+          </li>
+          <li class="skill" data-skill="css">
+            <span class="skill__name">CSS</span>
+            <span class="skill__prog"></span>
+          </li>
+          <li class="skill" data-skill="js">
+            <span class="skill__name">JavaScript</span>
+            <span class="skill__prog"></span>
+          </li>
+          <li class="skill" data-skill="git">
+            <span class="skill__name">GIT</span>
+            <span class="skill__prog"></span>
+          </li>
+          <li class="skill" data-skill="mysql">
+            <span class="skill__name">MySQL</span>
+            <span class="skill__prog"></span>
+          </li>
+          <li class="skill" data-skill="python">
+            <span class="skill__name">Python</span>
+            <span class="skill__prog"></span>
+          </li>
+        </ul>
+      </section>
+
+      <section id="time-line">
+        <h2 class="section-title">
+          <span data-text="time-line-title"></span>
+          <svg class="border-svg" xmlns="http://www.w3.org/2000/svg">
+            <rect class="border" />
+          </svg>
+        </h2>
+        <div class="container">
           <div class="time-line__event">
             <span class="event__year" data-text="event-1-year"></span>
             <div class="event__card card_left">
@@ -263,7 +294,7 @@
               <p class="event__desc" data-text="event-1-desc-1"></p>
             </div>
           </div>
-        </article>
+        </div>
       </section>
 
       <section id="features">
@@ -273,7 +304,7 @@
             <rect class="border" />
           </svg>
         </h2>
-        <article class="container features-wrapper">
+        <div class="container features-wrapper">
           <div class="feature">
             <div class="image">
               <img
@@ -310,132 +341,138 @@
             <p data-text="feature-3-desc"></p>
             <a href="#!" data-text="feature-more-btn"></a>
           </div>
-        </article>
-        <article class="container testimonials">
-          <h3 class="sub-section-title" data-text="testimonial-title"></h3>
-          <div class="testimonials-wrapper">
-            <div class="testimonial">
-              <div class="testimonial__info">
-                <img
-                  class="testimonial__img"
-                  src="images/avatar-01.webp"
-                  alt="Person Photo"
-                />
-                <div class="testimonial__content">
-                  <h4
-                    class="testimonial__name"
-                    data-text="testimonial-1-name"
-                  ></h4>
-                  <span
-                    class="testimonial__title"
-                    data-text="testimonial-1-title"
-                  ></span>
-                </div>
+        </div>
+      </section>
+
+      <section id="testimonials">
+        <h2 class="section-title">
+          <span data-text="testimonial-title"></span>
+          <svg class="border-svg" xmlns="http://www.w3.org/2000/svg">
+            <rect class="border" />
+          </svg>
+        </h2>
+        <div class="testimonials-wrapper container">
+          <div class="testimonial">
+            <div class="testimonial__info">
+              <img
+                class="testimonial__img"
+                src="images/avatar-01.webp"
+                alt="Person Photo"
+              />
+              <div class="testimonial__content">
+                <h4
+                  class="testimonial__name"
+                  data-text="testimonial-1-name"
+                ></h4>
+                <span
+                  class="testimonial__title"
+                  data-text="testimonial-1-title"
+                ></span>
               </div>
-              <p class="testimonial__text" data-text="testimonial-1-text"></p>
             </div>
-            <div class="testimonial">
-              <div class="testimonial__info">
-                <img
-                  class="testimonial__img"
-                  src="images/avatar-02.webp"
-                  alt="Person Photo"
-                />
-                <div class="testimonial__content">
-                  <h4
-                    class="testimonial__name"
-                    data-text="testimonial-2-name"
-                  ></h4>
-                  <span
-                    class="testimonial__title"
-                    data-text="testimonial-2-title"
-                  ></span>
-                </div>
-              </div>
-              <p class="testimonial__text" data-text="testimonial-2-text"></p>
-            </div>
-            <div class="testimonial">
-              <div class="testimonial__info">
-                <img
-                  class="testimonial__img"
-                  src="images/avatar-03.webp"
-                  alt="Person Photo"
-                />
-                <div class="testimonial__content">
-                  <h4
-                    class="testimonial__name"
-                    data-text="testimonial-3-name"
-                  ></h4>
-                  <span
-                    class="testimonial__title"
-                    data-text="testimonial-3-title"
-                  ></span>
-                </div>
-              </div>
-              <p class="testimonial__text" data-text="testimonial-3-text"></p>
-            </div>
-            <div class="testimonial">
-              <div class="testimonial__info">
-                <img
-                  class="testimonial__img"
-                  src="images/avatar-04.webp"
-                  alt="Person Photo"
-                />
-                <div class="testimonial__content">
-                  <h4
-                    class="testimonial__name"
-                    data-text="testimonial-4-name"
-                  ></h4>
-                  <span
-                    class="testimonial__title"
-                    data-text="testimonial-4-title"
-                  ></span>
-                </div>
-              </div>
-              <p class="testimonial__text" data-text="testimonial-4-text"></p>
-            </div>
-            <div class="testimonial">
-              <div class="testimonial__info">
-                <img
-                  class="testimonial__img"
-                  src="images/avatar-05.webp"
-                  alt="Person Photo"
-                />
-                <div class="testimonial__content">
-                  <h4
-                    class="testimonial__name"
-                    data-text="testimonial-5-name"
-                  ></h4>
-                  <span
-                    class="testimonial__title"
-                    data-text="testimonial-5-title"
-                  ></span>
-                </div>
-              </div>
-              <p class="testimonial__text" data-text="testimonial-5-text"></p>
-            </div>
-            <div class="testimonial">
-              <div class="testimonial__info">
-                <img
-                  class="testimonial__img"
-                  src="images/avatar-06.webp"
-                  alt="Person Photo"
-                />
-                <div class="testimonial__content">
-                  <h4
-                    class="testimonial__name"
-                    data-text="testimonial-6-name"
-                  ></h4>
-                  <span
-                    class="testimonial__title"
-                    data-text="testimonial-6-title"
-                  ></span>
-                </div>
-              </div>
-              <p class="testimonial__text" data-text="testimonial-6-text"></p>
-            </div>
+            <p class="testimonial__text" data-text="testimonial-1-text"></p>
           </div>
-        </article>
+          <div class="testimonial">
+            <div class="testimonial__info">
+              <img
+                class="testimonial__img"
+                src="images/avatar-02.webp"
+                alt="Person Photo"
+              />
+              <div class="testimonial__content">
+                <h4
+                  class="testimonial__name"
+                  data-text="testimonial-2-name"
+                ></h4>
+                <span
+                  class="testimonial__title"
+                  data-text="testimonial-2-title"
+                ></span>
+              </div>
+            </div>
+            <p class="testimonial__text" data-text="testimonial-2-text"></p>
+          </div>
+          <div class="testimonial">
+            <div class="testimonial__info">
+              <img
+                class="testimonial__img"
+                src="images/avatar-03.webp"
+                alt="Person Photo"
+              />
+              <div class="testimonial__content">
+                <h4
+                  class="testimonial__name"
+                  data-text="testimonial-3-name"
+                ></h4>
+                <span
+                  class="testimonial__title"
+                  data-text="testimonial-3-title"
+                ></span>
+              </div>
+            </div>
+            <p class="testimonial__text" data-text="testimonial-3-text"></p>
+          </div>
+          <div class="testimonial">
+            <div class="testimonial__info">
+              <img
+                class="testimonial__img"
+                src="images/avatar-04.webp"
+                alt="Person Photo"
+              />
+              <div class="testimonial__content">
+                <h4
+                  class="testimonial__name"
+                  data-text="testimonial-4-name"
+                ></h4>
+                <span
+                  class="testimonial__title"
+                  data-text="testimonial-4-title"
+                ></span>
+              </div>
+            </div>
+            <p class="testimonial__text" data-text="testimonial-4-text"></p>
+          </div>
+          <div class="testimonial">
+            <div class="testimonial__info">
+              <img
+                class="testimonial__img"
+                src="images/avatar-05.webp"
+                alt="Person Photo"
+              />
+              <div class="testimonial__content">
+                <h4
+                  class="testimonial__name"
+                  data-text="testimonial-5-name"
+                ></h4>
+                <span
+                  class="testimonial__title"
+                  data-text="testimonial-5-title"
+                ></span>
+              </div>
+            </div>
+            <p class="testimonial__text" data-text="testimonial-5-text"></p>
+          </div>
+          <div class="testimonial">
+            <div class="testimonial__info">
+              <img
+                class="testimonial__img"
+                src="images/avatar-06.webp"
+                alt="Person Photo"
+              />
+              <div class="testimonial__content">
+                <h4
+                  class="testimonial__name"
+                  data-text="testimonial-6-name"
+                ></h4>
+                <span
+                  class="testimonial__title"
+                  data-text="testimonial-6-title"
+                ></span>
+              </div>
+            </div>
+            <p class="testimonial__text" data-text="testimonial-6-text"></p>
+          </div>
+        </div>
       </section>
 
       <section id="gallery">

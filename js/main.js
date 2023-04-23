@@ -301,46 +301,55 @@ function addSkillsProg() {
 
 // add animations on scroll with the intersection observer
 function addAnimations() {
+  function applyAnimation(el, intersectionThreshold, animationClassName) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+
+        if (!entry.isIntersecting) return;
+
+        const target = entry.target;
+
+        if (target.classList.contains("testimonials-wrapper"))
+          el.querySelectorAll(".testimonial").forEach((test) =>
+            test.classList.add(animationClassName)
+          );
+        else if (target.classList.contains("about__content"))
+          target.querySelector(".about__img").classList.add("fade-in");
+        else target.classList.add(animationClassName);
+
+        observer.unobserve(el);
+      },
+      {
+        threshold: intersectionThreshold,
+      }
+    );
+
+    observer.observe(el);
+  }
+
   // elements to observe (if visible do some animations)
-  const aboutImg = document.querySelector(".about__img");
+  const aboutContent = document.querySelector(".about__content");
   const sectionHeaders = Array.from(
     document.getElementsByClassName("section-title")
   );
   const skills = document.querySelectorAll(".skill");
-  const testimonials = document.querySelectorAll(".testimonial");
+  const testimonial = document.querySelector(".testimonials-wrapper");
 
-  const IntersectionOptions = {
-    root: null,
-    rootMargin: "0px 5000px 0px 5000px",
-    threshold: 1,
-  };
+  // add the intersection observer for each element
+  applyAnimation(aboutContent, 1, "fade-in");
 
-  const applyAnimation = (entries, observer) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-
-      const el = entry.target;
-
-      if (el.classList.contains("about__img")) el.classList.add("fade-in");
-      else if (el.classList.contains("section-title"))
-        el.classList.add("border-animation");
-      else if (el.classList.contains("skill")) el.classList.add("scale-up");
-      else if (el.classList.contains("testimonial"))
-        el.classList.add("fade-in");
-
-      observer.unobserve(el);
-    });
-  };
-
-  const observer = new IntersectionObserver(
-    applyAnimation,
-    IntersectionOptions
+  sectionHeaders.forEach((header) =>
+    applyAnimation(header, 1, "border-animation")
   );
 
-  observer.observe(aboutImg);
-  sectionHeaders.forEach((el) => observer.observe(el));
-  skills.forEach((skill) => observer.observe(skill));
-  testimonials.forEach((testimonial) => observer.observe(testimonial));
+  skills.forEach((skill) => applyAnimation(skill, 1, "scale-up"));
+
+  applyAnimation(
+    testimonial,
+    0.125 * (window.innerHeight / testimonial.offsetHeight),
+    "fade-in"
+  );
 }
 
 // filter gallery imgs when clicked on its corresponding btn

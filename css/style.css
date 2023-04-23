@@ -20,8 +20,8 @@
   --features-bg: radial-gradient(
     circle,
     var(--main-bg) 3%,
-    var(--main-clr) 49%,
-    var(--main-bg) 70%
+    var(--main-clr) 29%,
+    var(--main-bg) 50%
   );
 }
 
@@ -67,6 +67,10 @@ p {
   font-weight: 700;
   color: var(--main-clr);
   text-shadow: 0 0 5px #000;
+}
+
+main > section {
+  padding-block: var(--section-padding);
 }
 
 /* main container */
@@ -236,7 +240,7 @@ ul {
   color: var(--main-txt-clr);
   width: 100%;
   min-height: var(--nav-height);
-  padding-inline: 2rem;
+  padding-inline: clamp(1rem, 2vw, 2rem);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -345,7 +349,7 @@ ul {
 }
 
 /* burger icon display */
-@media (max-width: 650px) {
+@media (max-width: 767px) {
   #nav::before {
     content: "";
     position: absolute;
@@ -653,15 +657,12 @@ ul {
 }
 
 /* ===== about section styles ===== */
-#about {
-  padding-block: var(--section-padding);
-}
-
 .about__content {
   display: flex;
   justify-content: space-between;
   column-gap: 2rem;
   place-items: center;
+  overflow: hidden;
 }
 
 .about__img {
@@ -708,10 +709,6 @@ ul {
 }
 
 /* skills styles */
-.skills-container {
-  margin-block: 3rem;
-}
-
 .sub-section-title {
   text-align: center;
   font-size: var(--title-size);
@@ -776,9 +773,6 @@ ul {
 }
 
 /* ================== Gallery styles ================== */
-#gallery {
-  padding-block: var(--section-padding);
-}
 
 .gallery-desc {
   margin: 1.5rem auto;
@@ -1076,7 +1070,6 @@ ul {
 
 /* ============= features section styles ============= */
 #features {
-  padding-block: var(--section-padding);
   background: var(--features-bg);
 }
 
@@ -1186,6 +1179,7 @@ ul {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
+  overflow: hidden;
 }
 
 @media (max-width: 300px) {
