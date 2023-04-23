@@ -235,7 +235,7 @@ ul {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 50;
+  z-index: 100;
   background-color: var(--alt-bg);
   color: var(--main-txt-clr);
   width: 100%;
@@ -299,7 +299,6 @@ ul {
   color: var(--alt-bg);
   background-color: var(--main-txt-clr);
   cursor: pointer;
-  z-index: 2000;
 }
 
 #toggle-nav:hover {
@@ -367,7 +366,7 @@ ul {
     padding-bottom: 0.5rem;
     gap: 1rem;
     background-color: var(--alt-bg);
-    z-index: -1000;
+    z-index: -100;
     transform: translateY(-100%);
     transition: transform var(--main-dur) ease-in-out;
   }
@@ -382,6 +381,67 @@ ul {
   #toggle-nav {
     display: block;
   }
+}
+
+/* ===== navigation bullets styles ===== */
+.nav-bullets {
+  position: fixed;
+  z-index: 50;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0.25rem 0.5rem;
+}
+
+.nav-bullet {
+  position: relative;
+  width: 1rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  margin-bottom: 0.5rem;
+  border: 1px solid var(--main-txt-clr);
+  background-color: var(--main-bg);
+  cursor: pointer;
+}
+
+.nav-bullet > a {
+  --arrow-width: 0.5em;
+  width: max-content;
+  display: none;
+  font-size: 0.825rem;
+  position: absolute;
+  top: 50%;
+  right: calc(100% + var(--arrow-width));
+  transform: translateY(-50%);
+  color: var(--main-txt-clr);
+  background-color: var(--alt-bg);
+  padding: 0.5em 0.75em;
+  pointer-events: none;
+  user-select: none;
+}
+
+.nav-bullet > a::before {
+  content: "";
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  border: var(--arrow-width) solid transparent;
+  border-left-color: var(--alt-bg);
+}
+
+.nav-bullet:hover > a,
+.nav-bullet:focus-visible > a {
+  display: block;
+}
+
+.nav-bullet.active {
+  background-color: var(--main-clr);
+}
+
+.nav-bullet:focus-visible {
+  outline: 2px solid var(--main-clr);
+  outline-offset: 2px;
 }
 
 /* ===== landing styles ===== */
@@ -436,7 +496,7 @@ ul {
 #settings {
   position: fixed;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
   width: var(--aside-width);
   height: 100vh;
   overflow: auto;
@@ -479,7 +539,7 @@ ul {
 
 .settings__toggle {
   position: fixed;
-  z-index: 100;
+  z-index: 1000;
   top: 30%;
 
   width: 30px;

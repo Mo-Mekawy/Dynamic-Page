@@ -56,6 +56,40 @@ function createScrollToTopBtn() {
   });
 }
 
+function createNavBullets() {
+  const bulletsContainer = document.querySelector("[data-bullets-container]");
+  const sections = document.getElementsByTagName("section");
+
+  for (sect of sections) {
+    if (sect.id === "landing") continue;
+
+    const bullet = document.createElement("li");
+    bullet.className = "nav-bullet";
+    bullet.tabIndex = 0;
+
+    const link = document.createElement("a");
+    link.href = `#${sect.id}`;
+    link.tabIndex = -1;
+    link.textContent = sect.id;
+
+    // if the bullet is clicked click the nav link and add the active class
+    bullet.onclick = () => {
+      link.click();
+      bulletsContainer
+        .querySelector(".nav-bullet.active")
+        ?.classList.remove("active");
+      bullet.classList.add("active");
+    };
+
+    bullet.onkeydown = (e) => {
+      if (e.key === "Enter") link.click();
+    };
+
+    bullet.append(link);
+    bulletsContainer.append(bullet);
+  }
+}
+
 // update the settings and show the settings tab when gear icon is clicked
 function handleSettingsTab() {
   // toggle settings aside
@@ -385,6 +419,7 @@ function handleGalleryFilter() {
 function main() {
   toggleNavbar();
   createScrollToTopBtn();
+  createNavBullets();
   handleSettingsTab();
   checkRandBgRepeat();
   checkDarkMode();
