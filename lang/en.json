@@ -87,5 +87,11 @@
   "testimonial-6-name": "Islam Mahfouz",
   "testimonial-6-title": "Founder @Codezilla.courses",
   "testimonial-6-text": "It is clear that this company is passionate about what they do. They approach every project with enthusiasm and a commitment to excellence, and their passion for their work is contagious. I have been inspired by their dedication to their craft, and I am grateful for the exceptional service they provide.",
-  "contact-title": "Contact Us"
+  "contact-title": "Contact Us",
+  "username-input": "Your Name",
+  "phone-input": "Your Phone",
+  "email-input": "Your Email",
+  "subject-input": "Subject",
+  "message-textarea": "Your Message",
+  "submit-input": "Send"
 }

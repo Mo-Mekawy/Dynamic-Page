@@ -269,6 +269,9 @@ async function changeLangTo(lang, direction) {
   const aboutImg = document.querySelector("[data-about-img]");
   const timeLineEvents = document.querySelectorAll(".event__card");
   const navBullets = document.querySelector("[data-bullets-container]");
+  const contactInputs = document.querySelectorAll(
+    "[data-contact-form] input, [data-contact-form] textarea"
+  );
 
   aside.classList.add(direction);
   aside.classList.remove(otherDirection);
@@ -297,6 +300,18 @@ async function changeLangTo(lang, direction) {
   imgDivs.forEach((div) => {
     const img = div.querySelector("img");
     img.alt = div.querySelector("p[data-text]").textContent;
+  });
+
+  // change placeholders of contact inputs
+  contactInputs.forEach((input) => {
+    if (input.tagName === "TEXTAREA") {
+      input.textContent = "";
+      input.placeholder = obj[input.dataset.text];
+      return;
+    }
+
+    if (input.type === "submit") input.value = obj[input.dataset.text];
+    else input.placeholder = obj[input.dataset.text];
   });
 }
 

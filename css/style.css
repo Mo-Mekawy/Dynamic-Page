@@ -1421,3 +1421,99 @@ ul {
   font-size: 0.95rem;
   opacity: 0.95;
 }
+
+/* contact styles */
+#contact {
+  background-image: url(../images/contact.webp);
+  background-size: cover;
+  position: relative;
+  isolation: isolate;
+}
+
+#contact::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-color: var(--landing-overlay);
+}
+
+.contact__form {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+@media (max-width: 767px) {
+  .contact__form {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75em;
+  }
+}
+
+.contact__inputs {
+  width: min(100%, 450px);
+  caret-color: var(--main-clr);
+}
+
+.input-container > input,
+.textarea-container > textarea {
+  display: block;
+  width: 100%;
+  padding: 0.5em 1em;
+  margin-block-end: 0.75em;
+  background-color: var(--alt-bg);
+  color: var(--main-txt-clr);
+  border-radius: 0.125em;
+  border: none;
+}
+
+.input-container > input:last-child {
+  margin-block-end: 0;
+}
+
+.textarea-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.textarea-container > textarea {
+  resize: none;
+  flex-grow: 1;
+}
+
+@media (max-width: 767px) {
+  .textarea-container > textarea {
+    height: 100px;
+  }
+}
+
+.contact__submit {
+  border: none;
+  border-radius: 0.25em;
+  padding: 0.5em 0.75em;
+  background-color: var(--main-clr);
+  color: var(--main-txt-clr);
+  cursor: pointer;
+}
+
+.contact__submit:hover {
+  opacity: 0.925;
+}
+
+.contact__inputs > input:focus-visible,
+.contact__inputs > textarea:focus-visible {
+  outline: 2px solid var(--main-txt-clr);
+  outline-offset: 2px;
+}
+
+.contact__inputs > input::placeholder,
+.contact__inputs > textarea::placeholder {
+  transition: opacity var(--main-dur) linear;
+}
+
+.contact__inputs > input:focus::placeholder,
+.contact__inputs > textarea:focus::placeholder {
+  opacity: 0;
+}

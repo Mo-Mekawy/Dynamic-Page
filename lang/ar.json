@@ -87,5 +87,11 @@
   "testimonial-6-name": "اسلام محفوظ",
   "testimonial-6-title": "مؤسس Codezilla.courses@",
   "testimonial-6-text": "من الواضح أن هذه الشركة متحمسة لما تقوم به. إنهم يتعاملون مع كل مشروع بحماس والتزام بالتميز، وشغفهم بعملهم معدوم. لقد شعرت بالإلهام من التفاني الذي يبديهونه في حرفتهم، وأنا ممتن للخدمة الاستثنائية التي يقدمونها.",
-  "contact-title": "تواصل معنا"
+  "contact-title": "تواصل معنا",
+  "username-input": "اسمك",
+  "phone-input": "رقم الهاتف",
+  "email-input": "البريد الالكترونى",
+  "subject-input": "الموضوع",
+  "message-textarea": "الرسالة",
+  "submit-input": "ارسال"
 }
