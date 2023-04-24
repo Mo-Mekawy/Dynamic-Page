@@ -219,6 +219,77 @@ main > section {
   }
 }
 
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+  backdrop-filter: blur(5px);
+}
+
+.pop-up {
+  position: fixed;
+  z-index: 6000;
+  top: 50%;
+  left: 50%;
+  width: 50vw;
+  animation: pop-up var(--fade-in-dur) cubic-bezier(0.18, 0.89, 0.32, 1.28)
+    forwards;
+  padding: 1rem 2rem;
+  border-radius: 0.25rem;
+  background-color: var(--alt-bg);
+}
+
+@keyframes pop-up {
+  from {
+    transform: translate(-50%, -50%) scale(0);
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.pop-up__message {
+  margin-bottom: 1em;
+}
+
+.btn-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.pop-up__btn {
+  width: 100%;
+  padding: 0.5em 0.75em;
+  border-radius: 0.25em;
+  color: var(--main-txt-clr);
+  cursor: pointer;
+}
+
+.pop-up__btn:hover {
+  opacity: 0.9;
+}
+
+.pop-up__cancle {
+  background-color: transparent;
+  border: 1px solid var(--main-txt-clr);
+}
+
+.pop-up__cancle:focus-visible {
+  outline: 2px solid var(--main-clr);
+  outline-offset: 2px;
+}
+
+.pop-up__confirm {
+  background-color: var(--main-clr);
+  border: none;
+}
+
+.pop-up__confirm:focus-visible {
+  outline: 2px solid var(--main-txt-clr);
+  outline-offset: 2px;
+}
+
 /* some resets */
 a {
   text-decoration: none;
@@ -514,7 +585,7 @@ ul {
   margin-inline: auto;
 }
 
-/* settings box styles */
+/* settings tab styles */
 #settings {
   position: fixed;
   top: 0;
@@ -525,6 +596,7 @@ ul {
   background-color: var(--alt-bg);
   color: var(--main-txt-clr);
   transition: transform var(--main-dur) ease-in-out;
+  padding-inline: 0.5rem;
 }
 
 /* custom scrollbar width */
@@ -616,7 +688,7 @@ ul {
 
 .settings-box {
   padding: 1rem 0.25rem;
-  margin: 2rem 0.5rem;
+  margin-block: 2rem;
   background-color: var(--main-bg);
   border-radius: 4px;
 }
@@ -660,7 +732,7 @@ ul {
   outline: 2px solid var(--main-txt-clr);
 }
 
-/* random bg checkbox styles */
+/* checkbox styles */
 .checkbox-setting {
   display: flex;
   justify-content: center;
@@ -736,6 +808,28 @@ ul {
 
 .radio-setting > .option > input:checked + label {
   color: var(--main-clr);
+}
+
+/* reset btn */
+.reset-btn {
+  display: block;
+  width: 100%;
+  margin: 2rem auto;
+  padding: 0.5em 0.75em;
+  border-radius: 0.25em;
+  border: none;
+  background-color: var(--main-clr);
+  color: var(--main-txt-clr);
+  cursor: pointer;
+}
+
+.reset-btn:focus-visible {
+  outline: 2px solid var(--main-txt-clr);
+  outline-offset: 2px;
+}
+
+.reset-btn:hover {
+  opacity: 0.925;
 }
 
 /* ===== about section styles ===== */

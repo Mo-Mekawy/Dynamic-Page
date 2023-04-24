@@ -357,6 +357,71 @@ function showNavBulletsOpt() {
   navBullets.style.display = "none";
 }
 
+// reset the settings to the defualt and clear the local storage
+function resetSettings() {
+  function createPopUp() {
+    const overlay = document.createElement("div");
+    overlay.className = "overlay";
+
+    const popUp = document.createElement("div");
+    popUp.className = "pop-up";
+
+    const messageEl = document.createElement("h4");
+    messageEl.className = "pop-up__message";
+
+    const btnsWrapper = document.createElement("div");
+    btnsWrapper.className = "btn-wrapper";
+
+    const cancleBtn = document.createElement("button");
+    cancleBtn.className = "pop-up__cancle pop-up__btn";
+
+    cancleBtn.onclick = () => {
+      popUp.remove();
+      overlay.remove();
+    };
+
+    const confirmBtn = document.createElement("button");
+    confirmBtn.className = "pop-up__confirm pop-up__btn";
+
+    confirmBtn.onclick = () => {
+      localStorage.removeItem("lang");
+      localStorage.removeItem("dark-mode");
+      localStorage.removeItem("allow-rand-bg");
+      localStorage.removeItem("show-bullets");
+      localStorage.removeItem("main-color");
+      window.location.reload();
+    };
+
+    btnsWrapper.append(cancleBtn);
+    btnsWrapper.append(confirmBtn);
+
+    popUp.append(messageEl);
+    popUp.append(btnsWrapper);
+
+    const langRadio = document.querySelector(
+      "[data-lang-radios] input:checked"
+    );
+
+    // add text based on the current lang
+    if (langRadio.value === "arabic") {
+      messageEl.textContent = "هل انت متأكد من اعادة ضبط جميع الاختيارات؟";
+      cancleBtn.textContent = "الغاء";
+      confirmBtn.textContent = "تأكيد";
+    } else {
+      messageEl.textContent = "Are you sure you want to reset all options?";
+      cancleBtn.textContent = "Cancle";
+      confirmBtn.textContent = "Confirm";
+    }
+
+    document.body.append(popUp);
+    document.body.append(overlay);
+  }
+
+  const resetBtn = document.querySelector("[data-reset-btn]");
+
+  resetBtn.onclick = createPopUp;
+}
+
 // add the skills prog to each skill element
 function addSkillsProg() {
   const progObj = {
@@ -470,6 +535,7 @@ function main() {
   checkDarkMode();
   setPageLang();
   showNavBulletsOpt();
+  resetSettings();
   addSkillsProg();
   addAnimations();
   handleGalleryFilter();
