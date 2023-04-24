@@ -387,10 +387,17 @@ ul {
 .nav-bullets {
   position: fixed;
   z-index: 50;
-  right: 0;
   top: 50%;
   transform: translateY(-50%);
   padding: 0.25rem 0.5rem;
+}
+
+.nav-bullets.ltr {
+  right: 0;
+}
+
+.nav-bullets.rtl {
+  left: 0;
 }
 
 .nav-bullet {
@@ -411,7 +418,6 @@ ul {
   font-size: 0.825rem;
   position: absolute;
   top: 50%;
-  right: calc(100% + var(--arrow-width));
   transform: translateY(-50%);
   color: var(--main-txt-clr);
   background-color: var(--alt-bg);
@@ -420,14 +426,30 @@ ul {
   user-select: none;
 }
 
+.nav-bullets.ltr > .nav-bullet > a {
+  right: calc(100% + var(--arrow-width));
+}
+
+.nav-bullets.rtl > .nav-bullet > a {
+  left: calc(100% + var(--arrow-width));
+}
+
 .nav-bullet > a::before {
   content: "";
   position: absolute;
-  left: 100%;
   top: 50%;
   transform: translateY(-50%);
   border: var(--arrow-width) solid transparent;
+}
+
+.nav-bullets.ltr > .nav-bullet > a::before {
+  left: 100%;
   border-left-color: var(--alt-bg);
+}
+
+.nav-bullets.rtl > .nav-bullet > a::before {
+  right: 100%;
+  border-right-color: var(--alt-bg);
 }
 
 .nav-bullet:hover > a,

@@ -70,7 +70,7 @@ function createNavBullets() {
     const link = document.createElement("a");
     link.href = `#${sect.id}`;
     link.tabIndex = -1;
-    link.textContent = sect.id;
+    link.setAttribute("data-text", `nav-bullet-${sect.id}`);
 
     // if the bullet is clicked click the nav link and add the active class
     bullet.onclick = () => {
@@ -95,7 +95,6 @@ function handleSettingsTab() {
   // toggle settings aside
   const settingsAside = document.querySelector("[data-settings]");
   const asideToggleBtn = document.querySelector("[data-settings-toggle]");
-  const colorSettingBtns = document.querySelectorAll(".color-setting");
 
   asideToggleBtn.addEventListener("click", (e) => {
     asideToggleBtn.classList.toggle("active");
@@ -107,34 +106,6 @@ function handleSettingsTab() {
       return;
     }
     asideToggleBtn.setAttribute("aria-expanded", "false");
-  });
-
-  // add colors to btns and update the main color on click
-  const mainColor = localStorage.getItem("main-color");
-  if (mainColor) {
-    document
-      .querySelector(`[data-color="${mainColor}"]`)
-      .classList.add("active");
-    document.documentElement.style.setProperty("--main-clr", mainColor);
-  } else {
-    colorSettingBtns[0].classList.add("active");
-    document.documentElement.style.setProperty(
-      "--main-clr",
-      colorSettingBtns[0].dataset.color
-    );
-  }
-
-  colorSettingBtns.forEach((btn) => {
-    btn.style.backgroundColor = btn.dataset.color;
-
-    btn.addEventListener("click", (e) => {
-      document.querySelector("[data-color].active").classList.remove("active");
-      e.target.classList.add("active");
-
-      const newColor = e.target.dataset.color;
-      localStorage.setItem("main-color", newColor);
-      document.documentElement.style.setProperty("--main-clr", newColor);
-    });
   });
 }
 
@@ -180,6 +151,37 @@ const checkRandBgRepeat = (() => {
     repeatInterval = getInterval();
   };
 })();
+
+// add colors to btns and update the main color on click
+function changeMainClr() {
+  const colorSettingBtns = document.querySelectorAll(".color-setting");
+  const mainColor = localStorage.getItem("main-color");
+  if (mainColor) {
+    document
+      .querySelector(`[data-color="${mainColor}"]`)
+      .classList.add("active");
+    document.documentElement.style.setProperty("--main-clr", mainColor);
+  } else {
+    colorSettingBtns[0].classList.add("active");
+    document.documentElement.style.setProperty(
+      "--main-clr",
+      colorSettingBtns[0].dataset.color
+    );
+  }
+
+  colorSettingBtns.forEach((btn) => {
+    btn.style.backgroundColor = btn.dataset.color;
+
+    btn.addEventListener("click", (e) => {
+      document.querySelector("[data-color].active").classList.remove("active");
+      e.target.classList.add("active");
+
+      const newColor = e.target.dataset.color;
+      localStorage.setItem("main-color", newColor);
+      document.documentElement.style.setProperty("--main-clr", newColor);
+    });
+  });
+}
 
 // changes the color varaibles so the theme changes to dark
 function setColorMode(isDarkMode) {
@@ -253,6 +255,7 @@ async function changeLangTo(lang, direction) {
   const checkMarkLabels = aside.querySelectorAll(".checkbox-setting > label");
   const aboutImg = document.querySelector("[data-about-img]");
   const timeLineEvents = document.querySelectorAll(".event__card");
+  const navBullets = document.querySelector("[data-bullets-container]");
 
   aside.classList.add(direction);
   aside.classList.remove(otherDirection);
@@ -272,6 +275,9 @@ async function changeLangTo(lang, direction) {
     event.classList.add(direction);
     event.classList.remove(otherDirection);
   });
+
+  navBullets.classList.add(direction);
+  navBullets.classList.remove(otherDirection);
 
   // change alt attr of gallery images
   const imgDivs = document.querySelectorAll("[data-image-type]");
@@ -311,6 +317,31 @@ function setPageLang() {
     changeLangTo("en", "ltr");
     enRadioBtn.checked = true;
   }
+}
+
+// handle show nav bullets checkbox setting
+function showNavBulletsOpt() {
+  const showBullets = localStorage.getItem("show-bullets");
+  const showBulletsCheckbox = document.querySelector("[data-bullets-checkbox]");
+  const navBullets = document.querySelector("[data-bullets-container]");
+
+  showBulletsCheckbox.addEventListener("change", () => {
+    localStorage.setItem("show-bullets", showBulletsCheckbox.checked);
+    if (showBulletsCheckbox.checked) {
+      navBullets.style.display = "block";
+      return;
+    }
+    navBullets.style.display = "none";
+  });
+
+  // if there is no item in local storage or the option was true
+  if (showBullets === null || showBullets === "true") {
+    showBulletsCheckbox.checked = true;
+    navBullets.style.display = "block";
+    return;
+  }
+  showBulletsCheckbox.checked = false;
+  navBullets.style.display = "none";
 }
 
 // add the skills prog to each skill element
@@ -421,9 +452,11 @@ function main() {
   createScrollToTopBtn();
   createNavBullets();
   handleSettingsTab();
+  changeMainClr();
   checkRandBgRepeat();
   checkDarkMode();
   setPageLang();
+  showNavBulletsOpt();
   addSkillsProg();
   addAnimations();
   handleGalleryFilter();
