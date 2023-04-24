@@ -26,13 +26,13 @@
   "lang-en": "English",
   "lang-ar": "Arabic",
   "landing-h1": "Hello there! we are <span class='highlight'>creative</span> agency",
-  "landing-p": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam nobis commodi tempore? Minus vero, aut repellendus officia voluptatum similique voluptate.",
+  "landing-p": "At our core, we value honesty, integrity, and transparency. We believe that open communication and trust are essential to building strong relationships with our customers.",
   "about-title": "About Us",
   "about-header-text": "Who Are We?",
-  "about-desc-text": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam nemo doloremque et, quas doloribus voluptates quo reprehenderit cumque quae obcaecati rem consequatur nobis recusandae eaque aspernatur totam eum earum? Placeat.",
+  "about-desc-text": "We are a team of passionate individuals who are dedicated to providing high-quality products and services to our customers. Our mission is to exceed your expectations and provide you with an exceptional experience every time you interact with us.",
   "skills-title": "skills",
   "gallery-title": "Gallery",
-  "gallery-desc": "Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.Mauris blandit aliquet elit, eget tincidunt",
+  "gallery-desc": "Our gallery showcases contemporary art from established and emerging artists, including abstract paintings, in an immersive space that invites visitors to engage with the artwork.",
   "filter-btn-1": "All",
   "filter-btn-2": "Imaginative",
   "filter-btn-3": "Nature",
@@ -93,5 +93,7 @@
   "email-input": "Your Email",
   "subject-input": "Subject",
   "message-textarea": "Your Message",
-  "submit-input": "Send"
+  "submit-input": "Send",
+  "footer-text": "Made By",
+  "footer-link-text": "Mohamed Mekawy"
 }

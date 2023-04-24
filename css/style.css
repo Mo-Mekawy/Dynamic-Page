@@ -1517,3 +1517,17 @@ ul {
 .contact__inputs > textarea:focus::placeholder {
   opacity: 0;
 }
+
+/* ========= footer styles ========= */
+footer {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+footer > a {
+  color: var(--main-clr);
+}
+
+footer > a:hover {
+  text-decoration: underline;
+}
