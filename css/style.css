@@ -16,7 +16,7 @@
   --nav-height: 50px;
   --aside-width: 250px;
   --title-size: clamp(1.75rem, 2vw + 1rem, 2.5rem);
-  --section-padding: 4rem;
+  --section-padding: 5rem;
   --features-bg: radial-gradient(
     circle,
     var(--main-bg) 3%,

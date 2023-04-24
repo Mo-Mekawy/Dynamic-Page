@@ -15,9 +15,11 @@ function toggleNavbar() {
   const burgerIcon = document.querySelector("[data-burger-icon]");
   const nav = document.querySelector("[data-nav-links]");
   const navLinks = nav.querySelectorAll("a");
+  const navMenu = document.querySelector("[data-nav-links]");
 
   // show nav links when the burger icon is clicked
-  burgerIcon.addEventListener("click", () => {
+  burgerIcon.addEventListener("click", (e) => {
+    e.stopPropagation();
     if (burgerIcon.getAttribute("aria-expanded") === "true") {
       burgerIcon.setAttribute("aria-expanded", "false");
       nav.classList.remove("visible");
@@ -35,6 +37,17 @@ function toggleNavbar() {
       });
       e.target.classList.add("active");
     });
+  });
+
+  // so when clicked its easy to know that this is the menu and hence
+  // its okay not to close the nav menu
+  navMenu.onclick = (e) => e.stopPropagation();
+
+  // close the nav menu when user clicks on any other element on the screen
+  document.addEventListener("click", (e) => {
+    if (e.target === burgerIcon || e.target === navMenu) return;
+
+    if (navMenu.classList.contains("visible")) burgerIcon.click();
   });
 }
 
